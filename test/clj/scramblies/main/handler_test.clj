@@ -1,8 +1,8 @@
 (ns scramblies.main.handler-test
   (:require
-   [clojure.test :refer :all]
-   [ring.mock.request :refer :all]
-   [scramblies.main.handler :refer :all]
+   [clojure.test :as t]
+   [ring.mock.request :as req]
+   [scramblies.main.handler :as scr]
    [scramblies.main.middleware.formats :as formats]
    [muuntaja.core :as m]
    [mount.core :as mount]))
@@ -10,18 +10,28 @@
 (defn parse-json [body]
   (m/decode formats/instance "application/json" body))
 
-(use-fixtures
+(t/use-fixtures
   :once
   (fn [f]
     (mount/start #'scramblies.main.config/env
                  #'scramblies.main.handler/app-routes)
     (f)))
 
-(deftest test-app
-  (testing "main route"
-    (let [response ((app) (request :get "/"))]
-      (is (= 200 (:status response)))))
+(t/deftest test-app
+  (t/testing "main route"
+    (let [response ((scr/app) (req/request :get "/"))]
+      (t/is (= 200 (:status response)))))
 
-  (testing "not-found route"
-    (let [response ((app) (request :get "/invalid"))]
-      (is (= 404 (:status response))))))
+  (t/testing "scramble route"
+    (let [response ((scr/app) (req/request :post "/scramble" {:first-string "test" :second-string "testu"}))]
+      (t/is (and (= 200 (:status response)) (= (:body response) "false"))))
+    (let [response ((scr/app) (req/request :post "/scramble" {:first-string "test" :second-string "test"}))]
+      (t/is (and (= 200 (:status response)) (= (:body response) "true"))))
+    (let [response ((scr/app) (req/request :post "/scramble" {:first-string "testu" :second-string "test"}))]
+      (t/is (and (= 200 (:status response)) (= (:body response) "true"))))
+    (let [response ((scr/app) (req/request :post "/scramble" {:-string "test" :third-string "testu"}))]
+      (t/is (= 400 (:status response)))))
+
+  (t/testing "not-found route"
+    (let [response ((scr/app) (req/request :get "/invalid"))]
+      (t/is (= 404 (:status response))))))

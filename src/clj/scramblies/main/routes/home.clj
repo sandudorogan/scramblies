@@ -2,7 +2,6 @@
   (:require
    [scramblies.main.layout :as layout]
    [scramblies.main.scramble :as sc]
-   [scramblies.main.utils :as utils]
    [clojure.java.io :as io]
    [scramblies.main.middleware :as middleware]
    [ring.util.response]
@@ -19,11 +18,12 @@
                         (-> (response/ok (-> "docs/docs.md" io/resource slurp))
                             (response/header "Content-Type" "text/plain; charset=utf-8")))}]
    ["/scramble" {:post (fn [request]
-                         (-> request
-                             :body-params
-                             (select-keys [:first-string :second-string])
-                             vals
-                             (->> (apply sc/scramble?))
-                             str
-                             response/ok
-                             (response/header "Content-Type" "text/plain; charset=utf-8")))}]])
+                         (or (some-> request
+                                     :params
+                                     (select-keys [:first-string :second-string])
+                                     vals
+                                     (->> (apply sc/scramble?))
+                                     str
+                                     response/ok
+                                     (response/header "Content-Type" "text/plain; charset=utf-8"))
+                             (response/bad-request)))}]])

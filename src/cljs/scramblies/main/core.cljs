@@ -9,7 +9,8 @@
    [scramblies.main.views.scramble :as view]))
 
 (defn root []
-  [view/scramble])
+  [:div
+   [view/scramble]])
 
 (defn render []
   (rdom/render [root] (gdom/getElement "app")))

@@ -4,6 +4,7 @@
             [reagent.core :as reagent :refer [atom]]
             [scramblies.main.core :as rc]))
 
-(deftest test-home
+;; TODO
+(deftest test-scramble
   (is (= true true)))
 

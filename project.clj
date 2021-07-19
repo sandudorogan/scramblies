@@ -32,11 +32,15 @@
                  [org.webjars.npm/bulma "0.9.2"]
                  [org.webjars.npm/material-icons "0.7.0"]
                  [org.webjars/webjars-locator "0.41"]
-                 [reagent "1.1.0"]
                  [ring-webjars "0.2.0"]
                  [ring/ring-core "1.9.3"]
                  [ring/ring-defaults "0.3.2"]
                  [selmer "1.12.40"]
+
+                 [reagent "1.1.0"]
+                 [re-frame/re-frame "1.2.0"]
+                 [cljs-http/cljs-http "0.1.46"]
+                 [binaryage/devtools "1.0.3"]
                  [thheller/shadow-cljs "2.14.3" :scope "provided"]]
 
   :min-lein-version "2.0.0"

@@ -65,6 +65,7 @@
        (reitit/match-by-path router)
        :data
        :name))
+
 ;; -------------------------
 ;; History
 ;; must be called after routes have been defined

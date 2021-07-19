@@ -57,8 +57,8 @@
 
 (defn -main [& args]
   (-> args
-                            (parse-opts cli-options)
-                            (mount/start-with-args #'scramblies.main.config/env))
+      (parse-opts cli-options)
+      (mount/start-with-args #'scramblies.main.config/env))
   (cond
     (nil? (:database-url env))
     (do

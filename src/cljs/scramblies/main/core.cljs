@@ -5,11 +5,12 @@
    [goog.dom :as gdom]
    [scramblies.main.events.db]
    [scramblies.main.events.scramble]
+   [scramblies.main.events.network]
    [scramblies.main.subscribers.scramble]
    [scramblies.main.views.scramble :as view]))
 
 (defn root []
-  [:div
+  [:div.grid-center
    [view/scramble]])
 
 (defn render []

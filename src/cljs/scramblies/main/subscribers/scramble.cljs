@@ -17,3 +17,9 @@
   :<- [:scramble]
   (fn [scramble _]
     (:second-string scramble)))
+
+(rf/reg-sub
+  :scramble/result
+  :<- [:scramble]
+  (fn [scramble _]
+    (:result scramble)))

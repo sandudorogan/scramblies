@@ -3,6 +3,7 @@
    [scramblies.main.layout :as layout]
    [scramblies.main.scramble :as sc]
    [clojure.java.io :as io]
+   [clojure.data.json :as json]
    [scramblies.main.middleware :as middleware]
    [ring.util.response]
    [ring.util.http-response :as response]))
@@ -22,8 +23,8 @@
                                      :params
                                      (select-keys [:first-string :second-string])
                                      vals
-                                     (->> (apply sc/scramble?))
-                                     str
+                                     (->> (apply sc/scramble?) (assoc {} :scramble))
+                                     json/write-str
                                      response/ok
-                                     (response/header "Content-Type" "text/plain; charset=utf-8"))
+                                     (response/header "Content-Type" "text/json; charset=utf-8"))
                              (response/bad-request)))}]])

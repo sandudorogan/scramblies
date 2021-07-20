@@ -18,12 +18,20 @@ body {
 
 #app {
   height: 100%;
+  background-color: #E3F2FD;
 }
 
 #app > div {
   height: inherit;
+}
+
+.grid-center {
   display: grid;
   place-items: center;
+}
+
+.grid-5-rows {
+  grid-template-rows: repeat(5, 1fr);
 }
 
 .material-icons {

@@ -10,7 +10,7 @@ You will need [Leiningen][1] 2.0 or above installed.
 
 [1]: https://github.com/technomancy/leiningen
 
-Alongside `shadow-cljs':
+Alongside `shadow-cljs`:
 
 ``` sh
 npm install -g shadow-cljs
@@ -45,7 +45,7 @@ shadow-cljs release app --config-merge "{:closure-defines {scramblies.main.app/C
 
 npx cypress run --config video=false
 ```
-This compiles ClojureScript files with all optimizations, then tests all its functionality. 
+This compiles ClojureScript files with all optimizations, then runs the tests.
 You can find the frontend test in `cypress/integration/landing/scramble.cljs`
 
 ## License

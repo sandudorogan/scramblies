@@ -1,5 +1,5 @@
 (ns scramblies.main.scramble-test
-  (:require [scramblies.main.scramble :as sut]
+  (:require [scramblies.main.utils.scramble :as sut]
             [clojure.test :as t]))
 
 

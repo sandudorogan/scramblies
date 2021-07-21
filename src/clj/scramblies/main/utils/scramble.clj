@@ -1,4 +1,4 @@
-(ns scramblies.main.scramble)
+(ns scramblies.main.utils.scramble)
 
 (defn alphabet
   "Returns a map with a given string' characters as keys

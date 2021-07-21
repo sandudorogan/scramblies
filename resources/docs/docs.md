@@ -81,21 +81,6 @@ the `env/dev/clj/` source path.
 
 <a class="level-item button" href="https://luminusweb.com/docs/middleware.html">learn more about middleware »</a>
 
-<div class="bs-callout bs-callout-danger">
-
-#### Database configuration is required
-
-If you haven't already, then please follow the steps below to configure your database connection and run the necessary migrations.
-
-* Run `lein run migrate` in the root of the project to create the tables.
-* Let `mount` know to start the database connection by `require`-ing `scramblies.main.db.core` in some other namespace.
-* Restart the application.
-
-<a class="btn btn-primary" href="http://www.luminusweb.net/docs/database.md">learn more about database access »</a>
-
-</div>
-
-
 
 <p class="title is-5">Need some help?</p>
 

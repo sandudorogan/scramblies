@@ -14,7 +14,7 @@
     (nrepl/start-server :port port
                         :bind bind
                         :transport-fn transport-fn
-                        :handler handler
+                        :handler (or handler cider-nrepl-handler)
                         :ack-port ack-port
                         :greeting-fn greeting-fn)
 

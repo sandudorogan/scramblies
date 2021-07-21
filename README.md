@@ -50,4 +50,4 @@ You can find the frontend test in `cypress/integration/landing/scramble.cljs`
 
 ## License
 
-Copyright © 2021 FIXME
+Copyright © 2021 Sandu Dorogan

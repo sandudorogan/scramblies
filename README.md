@@ -2,7 +2,7 @@
 
 generated using Luminus version "4.14"
 
-FIXME
+Front & back end for checking if a string can be made from letters of another string.
 
 ## Prerequisites
 
@@ -10,13 +10,19 @@ You will need [Leiningen][1] 2.0 or above installed.
 
 [1]: https://github.com/technomancy/leiningen
 
+Alongside `shadow-cljs':
+
+``` sh
+npm install -g shadow-cljs
+```
+
 ## Running
 
 To start a web server for the application, run:
 
     lein run 
 
-To compile & watch for changes on the front end, run:
+To start watching front end, run:
 
 ``` sh
 shadow-cljs watch app

@@ -24,11 +24,11 @@
 
   (t/testing "scramble route"
     (let [response ((scr/app) (req/request :post "/scramble" {:first-string "test" :second-string "testu"}))]
-      (t/is (and (= 200 (:status response)) (= (:body response) "false"))))
+      (t/is (and (= 200 (:status response)) (-> response :body parse-json :scramble (= false)))))
     (let [response ((scr/app) (req/request :post "/scramble" {:first-string "test" :second-string "test"}))]
-      (t/is (and (= 200 (:status response)) (= (:body response) "true"))))
+      (t/is (and (= 200 (:status response)) (-> response :body parse-json :scramble (= true)))))
     (let [response ((scr/app) (req/request :post "/scramble" {:first-string "testu" :second-string "test"}))]
-      (t/is (and (= 200 (:status response)) (= (:body response) "true"))))
+      (t/is (and (= 200 (:status response)) (-> response :body parse-json :scramble (= true)))))
     (let [response ((scr/app) (req/request :post "/scramble" {:-string "test" :third-string "testu"}))]
       (t/is (= 400 (:status response)))))
 

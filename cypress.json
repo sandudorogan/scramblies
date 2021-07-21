@@ -1,0 +1,9 @@
+{
+  "baseUrl": "http://localhost:3000",
+  "viewportWidth": 1400,
+  "viewportHeight": 900,
+  "env": {
+    "testUserLogin": "dev@nws.ai",
+    "testUserPassword": "4aWvk7tyg2e2N2A"
+  }
+}

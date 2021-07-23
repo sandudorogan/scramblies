@@ -16,16 +16,18 @@ Alongside `shadow-cljs`:
 npm install -g shadow-cljs
 ```
 
+Don't forget to `npm install` before compiling frontend.
+
 ## Running
 
 To start a web server for the application, run:
 
     lein run 
 
-To start watching front end, run:
+To compile front-end, run:
 
 ``` sh
-shadow-cljs watch app
+shadow-cljs release app
 ```
     
 ## Testing

@@ -29,6 +29,8 @@
       (t/is (and (= 200 (:status response)) (-> response :body parse-json :scramble (= true)))))
     (let [response ((scr/app) (req/request :post "/scramble" {:first-string "testu" :second-string "test"}))]
       (t/is (and (= 200 (:status response)) (-> response :body parse-json :scramble (= true)))))
+    (let [response ((scr/app) (req/request :post "/scramble" {:first-string "test"}))]
+      (t/is (= 400 (:status response))))
     (let [response ((scr/app) (req/request :post "/scramble" {:-string "test" :third-string "testu"}))]
       (t/is (= 400 (:status response)))))
 
